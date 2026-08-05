@@ -8,18 +8,39 @@ export default function DashboardLayout({
   loadDocuments,
 }) {
   return (
-    <div className="flex h-screen bg-slate-950 text-white">
+    <div className="h-screen overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
 
-      <Sidebar
-        documents={documents}
-        loadDocuments={loadDocuments}
-      />
+      <div className="flex h-full p-5 gap-5">
 
-      <PdfViewer />
+        {/* Sidebar */}
+        <div className="w-72 shrink-0">
+          <Sidebar
+            documents={documents}
+            loadDocuments={loadDocuments}
+          />
+        </div>
 
-      <ChatPanel />
+        {/* Center */}
+        <div className="flex flex-1 gap-5">
 
-      <RightPanel />
+          {/* Chat */}
+          <div className="flex-[1.2]">
+            <ChatPanel />
+          </div>
+
+          {/* PDF */}
+          <div className="flex-1">
+            <PdfViewer />
+          </div>
+
+        </div>
+
+        {/* AI Insights */}
+        <div className="w-80 shrink-0">
+          <RightPanel />
+        </div>
+
+      </div>
 
     </div>
   );

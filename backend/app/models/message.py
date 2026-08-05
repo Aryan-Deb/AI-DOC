@@ -28,4 +28,7 @@ class Message(Base):
         server_default=func.now(),
     )
 
-    session = relationship("ChatSession")
+    session = relationship(
+        "ChatSession",
+        back_populates="messages"
+    )

@@ -1,3 +1,11 @@
+# =============================
+# Import Models (IMPORTANT)
+# =============================
+import os
+import app.models.user
+import app.models.document
+import app.models.message
+import app.models.chat_session
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -12,7 +20,7 @@ from app.api.chat_stream import router as chat_stream_router
 from app.api.document import router as document_router
 from app.api.conversations import router as conversations_router
 from app.auth.routes import router as auth_router
-from app.api.chat_sessions import router as sessions_router
+from app.api.chat_session import router as sessions_router
 
 app = FastAPI(
     title="CogniDoc AI",
@@ -27,6 +35,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
+        "https://YOUR_PROJECT.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -36,6 +45,8 @@ app.add_middleware(
 # =============================
 # Static Files
 # =============================
+os.makedirs("uploads", exist_ok=True)
+
 app.mount(
     "/uploads",
     StaticFiles(directory="uploads"),

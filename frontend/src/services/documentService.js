@@ -1,7 +1,7 @@
 import api from "../api/axios";
 
 export const getDocuments = async () => {
-  const response = await api.get("/documents");
+  const response = await api.get("/documents/");
   return response.data;
 };
 
@@ -10,7 +10,11 @@ export const uploadDocument = async (file) => {
 
   formData.append("file", file);
 
-  const response = await api.post("/upload", formData);
+  const response = await api.post("/upload", formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
 
   return response.data;
 };

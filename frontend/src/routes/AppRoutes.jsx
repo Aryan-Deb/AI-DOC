@@ -5,6 +5,7 @@ import {
   Navigate,
 } from "react-router-dom";
 
+import Landing from "../pages/Landing";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
@@ -12,12 +13,15 @@ import Dashboard from "../pages/Dashboard";
 import ProtectedRoute from "../auth/ProtectedRoute";
 
 export default function AppRoutes() {
-
   return (
-
     <BrowserRouter>
 
       <Routes>
+
+        <Route
+          path="/"
+          element={<Landing />}
+        />
 
         <Route
           path="/login"
@@ -40,13 +44,11 @@ export default function AppRoutes() {
 
         <Route
           path="*"
-          element={<Navigate to="/dashboard" />}
+          element={<Navigate to="/" />}
         />
 
       </Routes>
 
     </BrowserRouter>
-
   );
-
 }

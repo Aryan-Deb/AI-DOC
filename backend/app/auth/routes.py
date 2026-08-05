@@ -32,6 +32,9 @@ def register(
             detail="Email already exists"
         )
 
+    print("Password:", user.password)
+    print("Length:", len(user.password))
+
     new_user = UserRepository.create(
         db=db,
         full_name=user.full_name,
