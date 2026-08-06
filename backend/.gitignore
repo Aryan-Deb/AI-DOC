@@ -1,12 +1,12 @@
+# Environment
+.env
+
 # Python
 venv/
 __pycache__/
 *.pyc
 
-# Environment
-.env
-
-# Local storage
+# Generated folders
 uploads/
 temp/
 chroma_db/
