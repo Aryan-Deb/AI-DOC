@@ -1,14 +1,25 @@
+import os
 import fitz
 import easyocr
-import os
 
-reader = easyocr.Reader(["en"], gpu=False)
+_reader = None
+
+
+def get_reader():
+    global _reader
+
+    if _reader is None:
+        _reader = easyocr.Reader(["en"], gpu=False)
+
+    return _reader
 
 
 class OCRService:
 
     @staticmethod
     def extract_text(pdf_path):
+
+        reader = get_reader()
 
         document = fitz.open(pdf_path)
 
@@ -35,7 +46,7 @@ class OCRService:
 
             pages.append({
                 "page": page_number + 1,
-                "text": text
+                "text": text,
             })
 
         return pages
