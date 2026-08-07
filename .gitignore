@@ -1,7 +1,13 @@
+.env
+.env.example
+
 venv/
 __pycache__/
-.env
-uploads/
 *.pyc
-.idea/
+
+uploads/
+temp/
+chroma_db/
+
 .vscode/
+.idea/

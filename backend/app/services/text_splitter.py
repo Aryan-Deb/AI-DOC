@@ -1,4 +1,4 @@
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 
 class TextSplitterService:
@@ -9,9 +9,7 @@ class TextSplitterService:
         splitter = RecursiveCharacterTextSplitter(
             chunk_size=1000,
             chunk_overlap=200,
-            length_function=len
+            length_function=len,
         )
 
-        chunks = splitter.split_text(text)
-
-        return chunks
+        return splitter.split_text(text)
