@@ -3,7 +3,7 @@ import axios from "axios";
 const api = axios.create({
   baseURL:
     import.meta.env.VITE_API_URL ||
-    "http://127.0.0.1:8000",
+    "https://ai-doc-1-a4r0.onrender.com",
 });
 
 api.interceptors.request.use((config) => {
