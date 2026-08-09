@@ -1,6 +1,6 @@
 import json
 
-from app.database.chroma_db import vector_store
+from app.database.chroma_db import get_vector_store
 from app.database.keyword_search import keyword_search
 from app.database.redis_db import redis_client
 
@@ -47,24 +47,32 @@ class RAGService:
 
             db = SessionLocal()
 
-            history = (
-                db.query(Message)
-                .filter(
-                    Message.conversation_id == conversation_id
+            try:
+                history = (
+                    db.query(Message)
+                    .filter(
+                        Message.conversation_id == conversation_id
+                    )
+                    .order_by(Message.id.desc())
+                    .limit(6)
+                    .all()
                 )
-                .order_by(Message.id.desc())
-                .limit(6)
-                .all()
-            )
 
-            db.close()
+                history.reverse()
 
-            history.reverse()
+                conversation = "\n".join(
+                    f"{msg.role}: {msg.content}"
+                    for msg in history
+                )
 
-            conversation = "\n".join(
-                f"{msg.role}: {msg.content}"
-                for msg in history
-            )
+            finally:
+                db.close()
+
+        # ---------------------------------
+        # Get ChromaDB Vector Store
+        # ---------------------------------
+
+        vector_store = get_vector_store()
 
         # ---------------------------------
         # Vector Search
@@ -88,7 +96,7 @@ class RAGService:
             )
 
         # ---------------------------------
-        # BM25 Search
+        # BM25 / Keyword Search
         # ---------------------------------
 
         keyword_results = keyword_search.search(
@@ -126,7 +134,10 @@ class RAGService:
                 continue
 
             if document:
-                if item["metadata"]["source"] != document:
+
+                metadata = item.get("metadata", {})
+
+                if metadata.get("source") != document:
                     continue
 
             combined_docs.append(item)
@@ -173,13 +184,21 @@ class RAGService:
 
         for item in combined_docs:
 
-            metadata = item["metadata"]
+            metadata = item.get("metadata", {})
 
-            source = metadata.get("source", "Unknown")
+            source = metadata.get(
+                "source",
+                "Unknown"
+            )
+
             page = metadata.get("page")
             chunk = metadata.get("chunk")
 
-            key = (source, page, chunk)
+            key = (
+                source,
+                page,
+                chunk,
+            )
 
             if key in added:
                 continue
@@ -208,12 +227,15 @@ class RAGService:
         # ---------------------------------
 
         try:
+
             redis_client.setex(
                 cache_key,
-                3600,  # 1 hour
+                3600,
                 json.dumps(result),
             )
+
         except Exception as e:
+
             print("Redis Error:", e)
 
         return result
