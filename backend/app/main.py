@@ -35,7 +35,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://ai-doc-brown.vercel.app",
+        "https://ai-doc-2-hpcg.onrender.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
