@@ -1,138 +1,269 @@
-CogniDoc AI
+✨ CogniDoc AI
 
-AI-powered document intelligence platform for working with PDF
-documents using React, FastAPI, Google Gemini, semantic search, and a
-modern AI workspace.
+<p align="center">
+  <strong>AI-Powered Document Intelligence for Your PDFs</strong>
+</p>
 
-Overview
+<p align="center">
+  Upload documents • Search intelligently • Ask questions • Get contextual AI answers
+</p>
 
-CogniDoc AI is a full-stack AI document intelligence application. Users
-can create an account, log in, upload PDF documents, and interact with
-their documents through an AI-powered workspace.
+<p align="center">
+  <img src="https://img.shields.io/badge/React-2026-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React">
+  <img src="https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
+  <img src="https://img.shields.io/badge/Gemini-AI-4285F4?style=for-the-badge&logo=google" alt="Gemini">
+  <img src="https://img.shields.io/badge/ChromaDB-Vector%20Search-FF6F61?style=for-the-badge" alt="ChromaDB">
+  <img src="https://img.shields.io/badge/PostgreSQL-Neon-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+</p>
 
-Features
+🚀 What is CogniDoc AI?
 
-PDF document upload
+CogniDoc AI is a full-stack document intelligence platform designed to make working with PDFs faster and more interactive.
 
-AI-powered document chat
+Instead of manually reading through long documents, users can upload a PDF and use an AI workspace to:
 
-Semantic/vector search with ChromaDB
+📄 Upload PDF documents
 
-Google Gemini integration
+🤖 Ask questions about their documents
 
-Document summaries and contextual answers
+🔎 Search document content semantically
 
-JWT authentication
+🧠 Generate contextual AI answers
 
-Protected dashboard routes
+📝 Create document summaries
 
-Document workspace
+🔐 Manage authenticated accounts
 
-AI insights dashboard
+📊 View document and AI insights
 
-Modern responsive dark UI
+The project combines Retrieval-Augmented Generation (RAG) with modern web technologies to turn static PDFs into an interactive knowledge base.
 
-React state management with Zustand
+🎯 Why CogniDoc AI?
 
-FastAPI REST backend
+Reading a large document can take hours.
 
-Tech Stack
+CogniDoc AI aims to reduce that friction:
+
+        📄 PDF
+          │
+          ▼
+   ┌───────────────┐
+   │ Text / OCR    │
+   │ Processing    │
+   └───────┬───────┘
+           │
+           ▼
+   ┌───────────────┐
+   │ Chunking &    │
+   │ Vector Search │
+   └───────┬───────┘
+           │
+           ▼
+      🔎 ChromaDB
+           │
+           ▼
+      User Question
+           │
+           ▼
+   ┌───────────────┐
+   │ Relevant      │
+   │ Context       │
+   └───────┬───────┘
+           │
+           ▼
+      ✨ Gemini AI
+           │
+           ▼
+     💬 AI Answer
+
+✨ Core Features
+
+📄 Smart PDF Upload
+
+Upload PDF documents directly from the dashboard and build your document workspace.
+
+🤖 AI Document Chat
+
+Ask natural-language questions about your uploaded documents instead of manually searching through pages.
+
+🔎 Semantic Search
+
+Relevant document content can be retrieved using vector-based semantic search rather than relying only on exact keyword matches.
+
+🧠 Gemini-Powered Responses
+
+Google Gemini is used to generate contextual responses using retrieved document information.
+
+📝 Document Intelligence
+
+The platform is designed around document extraction, search, summarization, and question answering.
+
+🔐 Authentication
+
+User registration, login, JWT-based authentication, and protected dashboard routes.
+
+📊 AI Workspace
+
+A dashboard interface brings documents, chat, insights, storage information, and quick actions together in one workspace.
+
+🛠️ Tech Stack
 
 Frontend
 
-React
+Technology
 
-Vite
+Purpose
 
-Tailwind CSS
+⚛️ React
 
-React Router
+UI
 
-Axios
+⚡ Vite
 
-Zustand
+Development & build
 
-Framer Motion
+🎨 Tailwind CSS
 
-Lucide React
+Styling
 
-React Hot Toast
+🧭 React Router
+
+Routing
+
+📡 Axios
+
+API communication
+
+🗃️ Zustand
+
+State management
+
+✨ Framer Motion
+
+UI animations
+
+🎯 Lucide React
+
+Icons
+
+🔔 React Hot Toast
+
+Notifications
 
 Backend
 
-Python
+Technology
 
-FastAPI
+Purpose
 
-SQLAlchemy
+🐍 Python
 
-Pydantic
+Backend language
 
-JWT authentication
+🚀 FastAPI
 
-Password hashing
+REST API
 
-Google Gemini API
+🗄️ SQLAlchemy
 
-ChromaDB
+Database ORM
 
-PyMuPDF / PDF processing
+🔐 JWT
+
+Authentication
+
+🔒 Password Hashing
+
+Credential security
+
+🧠 Google Gemini
+
+Generative AI
+
+🔎 ChromaDB
+
+Vector / semantic search
+
+📄 PyMuPDF / PDF processing
+
+Document processing
 
 Infrastructure
 
-Neon PostgreSQL
+☁️ Neon PostgreSQL
 
-Redis
+⚡ Redis
 
-Docker-ready architecture
+🐳 Docker-ready architecture
 
-Vercel
+▲ Vercel
 
-Render
+🚀 Render
 
-Architecture
+🏗️ Architecture
 
-React + Vite
-     |
-     | REST API / Axios
-     v
-FastAPI Backend
-     |
-     +---- Authentication / JWT
-     |
-     +---- PDF Processing
-     |
-     +---- ChromaDB / Semantic Search
-     |
-     +---- Google Gemini
-     |
-     +---- Neon PostgreSQL
+┌─────────────────────────────────────────────────────┐
+│                    CogniDoc AI                      │
+└─────────────────────────────────────────────────────┘
+                         │
+                         ▼
+              ┌────────────────────┐
+              │ React + Vite       │
+              │ Frontend           │
+              └─────────┬──────────┘
+                        │
+                     Axios
+                        │
+                        ▼
+              ┌────────────────────┐
+              │ FastAPI            │
+              │ Backend            │
+              └─────────┬──────────┘
+                        │
+        ┌───────────────┼────────────────┐
+        │               │                │
+        ▼               ▼                ▼
+   🔐 Auth        📄 Documents       🤖 AI / RAG
+        │               │                │
+        │               ▼                ▼
+        │          PDF Processing     Gemini
+        │               │                │
+        │               ▼                │
+        │           ChromaDB ◄──────────┘
+        │
+        ▼
+   PostgreSQL / Neon
 
-RAG Pipeline
+🧠 RAG Pipeline
+
+CogniDoc AI is designed around a Retrieval-Augmented Generation workflow:
 
 PDF Upload
     ↓
+Document Processing
+    ↓
 Text Extraction / OCR
     ↓
-Chunking
+Text Chunking
     ↓
-Vector Storage
+Vector Representation
     ↓
 ChromaDB
     ↓
-User Question
-    ↓
 Semantic Retrieval
     ↓
-Relevant Context
+Relevant Document Context
     ↓
 Google Gemini
     ↓
-AI Answer
+Contextual AI Response
 
-Project Structure
+This allows the AI response to be grounded in retrieved document content rather than treating every question as a completely standalone prompt.
+
+📁 Project Structure
 
 AI-DOC/
+│
 ├── backend/
 │   ├── app/
 │   │   ├── auth/
@@ -141,40 +272,50 @@ AI-DOC/
 │   │   ├── repositories/
 │   │   ├── routes/
 │   │   └── schemas/
+│   │
 │   ├── uploads/
-│   └── requirements.txt
+│   ├── requirements.txt
+│   └── ...
 │
-└── frontend/
-    ├── src/
-    │   ├── api/
-    │   ├── assets/
-    │   ├── auth/
-    │   ├── components/
-    │   │   ├── chat/
-    │   │   ├── dashboard/
-    │   │   └── pdf/
-    │   ├── layouts/
-    │   ├── pages/
-    │   ├── routes/
-    │   ├── services/
-    │   ├── store/
-    │   ├── App.jsx
-    │   └── index.css
-    └── package.json
+├── frontend/
+│   ├── src/
+│   │   ├── api/
+│   │   ├── assets/
+│   │   ├── auth/
+│   │   ├── components/
+│   │   │   ├── chat/
+│   │   │   ├── dashboard/
+│   │   │   └── pdf/
+│   │   ├── layouts/
+│   │   ├── pages/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── store/
+│   │   ├── App.jsx
+│   │   └── index.css
+│   │
+│   ├── package.json
+│   └── ...
+│
+└── README.md
 
-Local Development
+⚡ Quick Start
 
-Backend
+1. Clone
+
+git clone https://github.com/Aryan-Deb/AI-DOC.git
+cd AI-DOC
+
+2. Backend
 
 cd backend
-
 python -m venv venv
 
-Windows:
+Windows
 
 venv\Scripts\activate
 
-macOS/Linux:
+macOS / Linux
 
 source venv/bin/activate
 
@@ -182,25 +323,35 @@ Install dependencies:
 
 pip install -r requirements.txt
 
-Create a backend .env file:
+3. Environment Variables
+
+Create:
+
+backend/.env
+
+Example:
 
 GOOGLE_API_KEY=your_gemini_api_key
 DATABASE_URL=your_neon_database_url
 SECRET_KEY=your_secret_key
 
-Start FastAPI:
+⚠️ Never commit API keys, passwords, database credentials, or .env files to GitHub.
+
+4. Start FastAPI
 
 python -m uvicorn app.main:app --reload
 
-API:
+Backend:
 
 http://127.0.0.1:8000
 
-Swagger docs:
+Swagger:
 
 http://127.0.0.1:8000/docs
 
-Frontend
+5. Frontend
+
+Open another terminal:
 
 cd frontend
 npm install
@@ -210,104 +361,204 @@ Frontend:
 
 http://localhost:5173
 
-For production:
+🔐 Authentication
 
-npm run build
+The authentication flow uses JWT:
 
-Authentication API
+Register
+   ↓
+POST /auth/register
+   ↓
+Login
+   ↓
+POST /auth/login
+   ↓
+JWT Access Token
+   ↓
+Frontend Storage
+   ↓
+Authenticated API Requests
 
-Method   Endpoint           Description
+Authentication endpoints
 
-POST     /auth/register   Create an account
-POST     /auth/login      Login and receive JWT
-GET      /auth/me         Get authenticated user
+Method
 
-Document API
+Endpoint
 
-Method   Endpoint        Description
+Description
 
-POST     /upload       Upload a PDF
-GET      /documents/   Get available documents
+POST
 
-Additional chat, conversation, search, and document-processing endpoints
-can be added as the application evolves.
+/auth/register
 
-Environment Variables
+Create an account
 
-Never commit secrets to GitHub.
+POST
 
-Recommended .gitignore entries:
+/auth/login
 
-.env
-.env.*
-venv/
-__pycache__/
-node_modules/
-dist/
-*.pyc
+Login
 
-Deployment
+GET
 
-The project supports separate frontend and backend deployment.
+/auth/me
+
+Current authenticated user
+
+📡 Document API
+
+Method
+
+Endpoint
+
+Description
+
+POST
+
+/upload
+
+Upload a PDF
+
+GET
+
+/documents/
+
+Retrieve documents
+
+Additional endpoints can support chat, conversations, search, and document processing depending on the current backend implementation.
+
+🌐 Deployment
+
+CogniDoc AI is structured for separate frontend and backend deployment.
 
 Frontend
 
-The Vite frontend can be deployed to Vercel. Configure:
+The React/Vite application can be deployed using Vercel.
+
+Configure:
 
 VITE_API_URL=https://your-backend-domain.com
 
 Backend
 
-The FastAPI backend can be deployed to Render or another Python hosting
-provider.
+The FastAPI application can be deployed using Render or another Python hosting platform.
 
-Configure the production environment with the required database URL,
-Gemini API key, JWT secret, CORS settings, and other application
-variables.
+Production configuration should include:
 
-Roadmap
+Database URL
+Gemini API Key
+JWT Secret
+CORS configuration
+Other application secrets
 
-Multiple PDF uploads
+🔒 Security Checklist
 
-Drag-and-drop upload
+Before deploying publicly:
+
+Remove .env from Git tracking
+
+Rotate any accidentally exposed API keys
+
+Use a strong production JWT secret
+
+Configure production CORS
+
+Validate PDF file type and size
+
+Protect private document endpoints
+
+Enable HTTPS
+
+Avoid logging passwords
+
+Avoid exposing sensitive document content in logs
+
+Recommended .gitignore:
+
+.env
+.env.*
+venv/
+__pycache__/
+*.pyc
+node_modules/
+dist/
+
+🗺️ Roadmap
+
+Document Intelligence
+
+Multiple PDF upload
+
+Drag & drop uploads
 
 Document deletion
 
-Favorites
+Document favorites
 
-Conversation history
+Better page-level citations
 
-Streaming AI responses
-
-Improved page citations
-
-OCR improvements for scanned PDFs
+Improved scanned-PDF OCR
 
 Document comparison
 
+Table extraction
+
+AI
+
+Streaming responses
+
+Better conversation memory
+
+Follow-up questions
+
+AI-generated document insights
+
+Custom AI instructions
+
+Productivity
+
 Export answers to PDF/DOCX
+
+Conversation history
 
 Advanced analytics
 
+Search across multiple documents
+
+Document sharing
+
 Team collaboration
 
-Rate limiting
+Engineering
 
 Automated tests
 
 CI/CD
 
-Author
+Rate limiting
+
+Production monitoring
+
+Improved error handling
+
+📸 Product
+
+CogniDoc AI provides a dark, modern workspace focused on making document analysis feel like a dedicated AI product rather than a traditional file manager.
+
+Upload → Understand → Search → Ask → Discover
+
+👨‍💻 Author
 
 Aryan Gehlawat
 
-Built as a full-stack AI document intelligence project using React,
-FastAPI, Gemini, ChromaDB, and PostgreSQL.
+CogniDoc AI — Enterprise AI Document Intelligence
 
-License
+Built with:
 
-No license has currently been specified for this repository. Add a
-LICENSE file if you decide to open-source the project under a specific
-license.
+React · FastAPI · Gemini · ChromaDB · PostgreSQL
 
-⭐ If you find CogniDoc AI useful, consider starring the repository.
+⭐ Support
+
+If you find this project interesting, consider giving the repository a ⭐.
+
+Feedback, ideas, and contributions are welcome.
